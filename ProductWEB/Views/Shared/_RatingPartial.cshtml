@@ -1,0 +1,13 @@
+﻿@model double
+@{ 
+    string startWidth = (Model * 95 / 5).ToString() + "px";
+}
+<div class="crop" style="width:@startWidth" title="@Model">
+    <div style="width:100px">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+    </div>
+</div>

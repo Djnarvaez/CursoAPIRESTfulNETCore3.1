@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card" style="margin-top:30px">
+    <div class="card-header bg-dark text-light ml-0 row container">
+        <div class="col-md-6">
+            <i class="fa fa-list-ul"></i>&nbsp;Lista de Productos
+        </div>
+        <div class="col-md-6 text-right">
+            <a class="btn btn-primary btn-sm text-white"><i class="fa fa-plus"></i></a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            @if (Model.Count() > 0)
+            {
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(x => x.Image)</th>
+                                <th>@Html.DisplayNameFor(x => x.Name)</th>
+                                <th>@Html.DisplayNameFor(x => x.Description)</th>
+                                <th>@Html.DisplayNameFor(x => x.Price)</th>
+                                <th>@Html.DisplayNameFor(x => x.Rating)</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @{
+                                            var base64 = Convert.ToBase64String(item.Image);
+                                            var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                            if (item.Image != null && item.Image.Length > 0)
+                                            {
+                                                <img src="@imgsrc" style="width:50px; margin:2px">
+
+                                            }
+                                            else
+                                            {
+                                                <img src="https://via.placeholder.com/150" style="width:50px; margin:2px">
+
+                                            }
+                                        }
+                                    </td>
+                                    <td>@Html.DisplayFor(x => item.Name)</td>
+                                    <td>@Html.DisplayFor(x => item.Description)</td>
+                                    <td>@Html.DisplayFor(x => item.Price)</td>
+                                    <td width="120px">
+                                        <partial name="_RatingPartial" model="@item.Rating" />
+                                    </td>
+                                    <td width="100px">
+                                        <partial name="_TableButtonPartial" model="@item.Id" />
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p>No hay registro en base de datos</p>
+            }
+        </div>
+    </div>
+</div>
+
+
