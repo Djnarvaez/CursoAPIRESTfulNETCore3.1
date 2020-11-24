@@ -15,7 +15,8 @@ namespace ProductAPI.Util
         private readonly IHttpClientFactory httpClientFactory;
         private readonly IConfiguration configuration;
 
-        public APITranslator(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        public APITranslator(IHttpClientFactory httpClientFactory, 
+                             IConfiguration configuration)
         {
             this.httpClientFactory = httpClientFactory;
             this.configuration = configuration;
