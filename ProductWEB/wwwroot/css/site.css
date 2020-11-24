@@ -3,6 +3,12 @@ for details on configuring this project to bundle and minify static web assets. 
 .crop {
     overflow:hidden;
 }
+
+.img-product {
+    border-radius: 5px;
+    border: 1px solid #bbb9b9;
+    width:100%
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;

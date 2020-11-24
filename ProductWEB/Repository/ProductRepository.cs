@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ProductWEB.Repository
 {
-    public class ProductRepository:Repository<Product>, IProductRepository
+    public class ProductRepository : Repository<Product>, IProductRepository
     {
-        public ProductRepository(IHttpClientFactory httpClientFactory):base(httpClientFactory)
+        public ProductRepository(IHttpClientFactory httpClientFactory) : base(httpClientFactory)
         {
 
         }

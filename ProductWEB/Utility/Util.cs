@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProductWEB.Utility
 {
-    public class Util<T> where T:class
+    public class Util<T> where T : class
     {
         private readonly IHttpClientFactory httpClientFactory;
         public Util(IHttpClientFactory httpClientFactory)

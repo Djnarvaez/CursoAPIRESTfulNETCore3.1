@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductAPI", "ProductAPI\ProductAPI.csproj", "{A45FCA6E-C7B9-484E-889A-3260D419405E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductWEB", "ProductWEB\ProductWEB.csproj", "{3BAD4A50-417D-48A3-B72D-8B4809945970}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductWEB", "ProductWEB\ProductWEB.csproj", "{3BAD4A50-417D-48A3-B72D-8B4809945970}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -17,6 +17,7 @@ namespace ProductAPI.Repository
         {
             this.context = context;
         }
+
         public bool CreateProduct(Product product)
         {
             context.Product.Add(product);
@@ -36,17 +37,17 @@ namespace ProductAPI.Repository
 
         public Product GetProduct(int id)
         {
-            return context.Product.FirstOrDefault(x=>x.Id.Equals(id));
+            return context.Product.FirstOrDefault(x => x.Id.Equals(id));
         }
 
         public bool ProductExists(string name)
         {
-            return context.Product.Any(x=>x.Name.ToLower().Trim().Equals(name.ToLower().Trim()));
+            return context.Product.Any(x => x.Name.ToLower().Trim().Equals(name.ToLower().Trim()));
         }
 
         public bool ProductExists(int id)
         {
-            return context.Product.Any(x=>x.Id.Equals(id));
+            return context.Product.Any(x => x.Id.Equals(id));
         }
 
         public bool Save()

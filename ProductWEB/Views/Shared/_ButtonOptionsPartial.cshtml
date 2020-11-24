@@ -1,0 +1,8 @@
+﻿@model string
+    <div class="col-4"></div>
+    <div class="col-4">
+        <input type="submit" class="@(Model == "Eliminar" ? "btn btn-danger form-control" : "btn btn-info form-control" )" value="@Model" />
+    </div>
+    <div class="col-4">
+        <a asp-action="Index" class="btn btn-success form-control">Regresar</a>
+    </div>

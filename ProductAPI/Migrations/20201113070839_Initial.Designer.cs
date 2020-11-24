@@ -10,7 +10,7 @@ using ProductAPI.Context;
 namespace ProductAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201015234453_Initial")]
+    [Migration("20201113070839_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

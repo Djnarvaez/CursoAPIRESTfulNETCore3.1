@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProductWEB.Repository.IRepository
 {
-    public interface IRepository<T> where T:class
+    public interface IRepository<T> where T : class
     {
         Task<IEnumerable<T>> GetAllAsync(string url);
         Task<T> GetAsync(string url, int id);

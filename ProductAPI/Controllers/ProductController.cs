@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProductAPI.Models;
@@ -13,6 +15,7 @@ namespace ProductAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ProductController : ControllerBase
     {
         private readonly IProductRepository productRepository;
@@ -25,7 +28,7 @@ namespace ProductAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllProduct() 
+        public IActionResult GetAllProduct()
         {
             var product = productRepository.GetAllProduct();
             return Ok(mapper.Map<List<ProductDTO>>(product));
@@ -34,7 +37,7 @@ namespace ProductAPI.Controllers
         [HttpGet("{id}", Name = "GetProduct")]
         public IActionResult GetProduct(int id)
         {
-           var product = productRepository.GetProduct(id);
+            var product = productRepository.GetProduct(id);
             if (product == null) return NotFound();
             return Ok(mapper.Map<ProductDTO>(product));
         }
@@ -46,7 +49,7 @@ namespace ProductAPI.Controllers
 
             if (productRepository.ProductExists(productDTO.Name))
             {
-                ModelState.AddModelError(string.Empty, $"ya existe un producto con el nombre {productDTO.Name}");
+                ModelState.AddModelError("Response", $"ya existe un producto con el nombre {productDTO.Name}");
                 return StatusCode(404, ModelState);
             }
 
@@ -54,11 +57,11 @@ namespace ProductAPI.Controllers
 
             if (!productRepository.CreateProduct(product))
             {
-                ModelState.AddModelError(string.Empty, $"Ha ocurrido un error al intentar guardar el producto {productDTO.Name}");
+                ModelState.AddModelError("Response", $"Ha ocurrido un error al intentar guardar el producto {productDTO.Name}");
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtRoute("GetProduct", new {id = product.Id }, product);
+            return CreatedAtRoute("GetProduct", new { id = product.Id }, product);
         }
 
         [HttpPut("{id}")]
@@ -69,7 +72,7 @@ namespace ProductAPI.Controllers
             var product = mapper.Map<Product>(productDTO);
             if (!productRepository.UpdateProduct(product))
             {
-                ModelState.AddModelError(string.Empty, $"Ha ocurrido un error al intentar actualizar el producto {productDTO.Name}");
+                ModelState.AddModelError("Response", $"Ha ocurrido un error al intentar actualizar el producto {productDTO.Name}");
                 return StatusCode(500, ModelState);
             }
             return NoContent();
@@ -84,7 +87,7 @@ namespace ProductAPI.Controllers
 
             if (!productRepository.DeleteProduct(product))
             {
-                ModelState.AddModelError(string.Empty, $"Ha ocurrido un error al intentar eliminar el producto {product.Name}");
+                ModelState.AddModelError("Response", $"Ha ocurrido un error al intentar eliminar el producto {product.Name}");
                 return StatusCode(500, ModelState);
             }
             return NoContent();

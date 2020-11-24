@@ -1,0 +1,81 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Create";
+    string crear = "Crear";
+}
+
+<div class="card mt-5">
+    <div class="card-header bg-dark text-light ml-0 row container">
+        <div class="col-md-6">
+            <i class="fa fa-save"></i>&nbsp;Crear Producto
+        </div>
+        <div class="col-md-6 text-right"> </div>
+    </div>
+    <div class="card-body">
+        <form class="mt-2" method="post" asp-action="Create" enctype="multipart/form-data">
+            <div class="row">
+                @if (Model.Errors.Count > 0)
+                {
+                    foreach (var item in Model.Errors)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:100%">
+                            <span>@item.ErrorMessage</span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+                }
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Name" class="col-form-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control" asp-for="@Model.Name" />
+                            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Description" class="col-form-label"></label>
+                        </div>
+                        <div class="col-8">
+                            @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Price" class="col-form-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control" asp-for="@Model.Price" />
+                            <span asp-validation-for="@Model.Price" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Image" class="col-form-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input type="file" asp-for="@Model.Image" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@Model.Rating" class="col-form-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control" asp-for="@Model.Rating" />
+                            <span asp-validation-for="@Model.Rating" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <partial name="_ButtonOptionsPartial" model="crear" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
