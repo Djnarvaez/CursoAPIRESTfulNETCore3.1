@@ -55,6 +55,8 @@ namespace ProductAPI
 
             services.AddHttpClient();
 
+            services.AddCors();
+
             services.AddControllers();
         }
 
@@ -69,6 +71,8 @@ namespace ProductAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseAuthentication();
 
