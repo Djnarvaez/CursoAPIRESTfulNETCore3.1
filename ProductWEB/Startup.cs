@@ -27,6 +27,12 @@ namespace ProductWEB
         {
             services.AddHttpClient();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromMinutes(10);
+                option.Cookie.HttpOnly = true;
+                option.Cookie.IsEssential = true;
+            });
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
@@ -44,11 +50,16 @@ namespace ProductWEB
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

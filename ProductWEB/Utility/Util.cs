@@ -151,5 +151,55 @@ namespace ProductWEB.Utility
                 }
             };
         }
+        public async Task<ModelStateError> LoginAsync(string url, T entity)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Post, url);
+
+            request.Content = new StringContent(JsonConvert.SerializeObject(entity), Encoding.UTF8, Resource.ContentType);
+
+            var httpClient = httpClientFactory.CreateClient();
+
+            HttpResponseMessage response = await httpClient.SendAsync(request);
+
+            if (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.InternalServerError)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<ModelStateError>(json);
+            }
+
+            var content = await response.Content.ReadAsStringAsync();
+            var modelError = JsonConvert.DeserializeObject<ModelStateError>(content);
+
+            modelError.Response = new Response()
+            {
+                Errors = new List<Errors>()
+            };
+            return modelError;
+        }
+        public async Task<ModelStateError> RegisterAsync(string url, T entity)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Post, url);
+
+            request.Content = new StringContent(JsonConvert.SerializeObject(entity), Encoding.UTF8, Resource.ContentType);
+
+            var httpClient = httpClientFactory.CreateClient();
+
+            HttpResponseMessage response = await httpClient.SendAsync(request);
+
+            if (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.InternalServerError)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<ModelStateError>(json);
+            }
+
+            return new ModelStateError()
+            {
+                Response = new Response()
+                {
+                    Errors = new List<Errors>()
+
+                }
+            };
+        }
     }
 }
