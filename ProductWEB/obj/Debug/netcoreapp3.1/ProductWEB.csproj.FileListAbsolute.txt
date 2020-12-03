@@ -721,7 +721,6 @@ C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductWEB\bin\De
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductWEB\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductWEB\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductWEB\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductWEB\obj\Debug\netcoreapp3.1\ProductWEB.csprojAssemblyReference.cache
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductWEB\obj\Debug\netcoreapp3.1\ProductWEB.AssemblyInfoInputs.cache
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductWEB\obj\Debug\netcoreapp3.1\ProductWEB.AssemblyInfo.cs
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductWEB\obj\Debug\netcoreapp3.1\ProductWEB.csproj.CoreCompileInputs.cache

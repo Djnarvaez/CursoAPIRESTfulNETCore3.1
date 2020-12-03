@@ -116,6 +116,7 @@ C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\bin\De
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\obj\Debug\netcoreapp3.1\ProductAPI.csprojAssemblyReference.cache
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\obj\Debug\netcoreapp3.1\ProductAPI.AssemblyInfoInputs.cache
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\obj\Debug\netcoreapp3.1\ProductAPI.AssemblyInfo.cs
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\obj\Debug\netcoreapp3.1\ProductAPI.csproj.CoreCompileInputs.cache
@@ -128,4 +129,3 @@ C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\obj\De
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\obj\Debug\netcoreapp3.1\ProductAPI.dll
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\obj\Debug\netcoreapp3.1\ProductAPI.pdb
 C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\obj\Debug\netcoreapp3.1\ProductAPI.genruntimeconfig.cache
-C:\Users\Dnarvaez\source\repos\Udemy\CursoAPIProductASPNETCore\ProductAPI\obj\Debug\netcoreapp3.1\ProductAPI.csprojAssemblyReference.cache
