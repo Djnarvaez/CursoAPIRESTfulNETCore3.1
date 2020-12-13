@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,9 +18,13 @@ namespace ProductWEB.Utility
         {
             this.httpClientFactory = httpClientFactory;
         }
-        public async Task<ModelStateError> CreateAsync(string url, T entity)
+        public async Task<ModelStateError> CreateAsync(string url, T entity, string token)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, url);
+            if (token.Length > 0)
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
 
             request.Content = new StringContent(JsonConvert.SerializeObject(entity), Encoding.UTF8, Resource.ContentType);
 
@@ -47,10 +52,13 @@ namespace ProductWEB.Utility
                 }
             };
         }
-        public async Task<ModelStateError> DeleteAsync(string url, int id)
+        public async Task<ModelStateError> DeleteAsync(string url, int id, string token)
         {
             var request = new HttpRequestMessage(HttpMethod.Delete, url + id);
-
+            if (token.Length > 0)
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var httpClient = httpClientFactory.CreateClient();
 
             HttpResponseMessage response = await httpClient.SendAsync(request);
@@ -83,9 +91,13 @@ namespace ProductWEB.Utility
                 }
             };
         }
-        public async Task<IEnumerable<T>> GetAllAsync(string url)
+        public async Task<IEnumerable<T>> GetAllAsync(string url, string token)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, url);
+            if (token.Length > 0)
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
 
             var httpClient = httpClientFactory.CreateClient();
 
@@ -98,10 +110,13 @@ namespace ProductWEB.Utility
 
             return null;
         }
-        public async Task<T> GetAsync(string url, int id)
+        public async Task<T> GetAsync(string url, int id, string token)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, url + id);
-
+            if (token.Length > 0)
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var httpClient = httpClientFactory.CreateClient();
 
             HttpResponseMessage response = await httpClient.SendAsync(request);
@@ -113,10 +128,13 @@ namespace ProductWEB.Utility
 
             return null;
         }
-        public async Task<ModelStateError> UpdateAsync(string url, T entity)
+        public async Task<ModelStateError> UpdateAsync(string url, T entity, string token)
         {
             var request = new HttpRequestMessage(HttpMethod.Put, url);
-
+            if (token.Length > 0)
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             request.Content = new StringContent(JsonConvert.SerializeObject(entity), Encoding.UTF8, Resource.ContentType);
 
             var httpClient = httpClientFactory.CreateClient();
@@ -161,7 +179,9 @@ namespace ProductWEB.Utility
 
             HttpResponseMessage response = await httpClient.SendAsync(request);
 
-            if (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.InternalServerError)
+            if (response.StatusCode == HttpStatusCode.NotFound ||
+                response.StatusCode == HttpStatusCode.BadRequest ||
+                response.StatusCode == HttpStatusCode.InternalServerError)
             {
                 var json = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<ModelStateError>(json);
@@ -186,7 +206,9 @@ namespace ProductWEB.Utility
 
             HttpResponseMessage response = await httpClient.SendAsync(request);
 
-            if (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.InternalServerError)
+            if (response.StatusCode == HttpStatusCode.NotFound ||
+                response.StatusCode == HttpStatusCode.BadRequest ||
+                response.StatusCode == HttpStatusCode.InternalServerError)
             {
                 var json = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<ModelStateError>(json);

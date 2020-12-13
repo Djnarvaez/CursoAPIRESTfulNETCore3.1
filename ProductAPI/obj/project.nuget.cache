@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sQtgyqNNKqSLW6rqKWvGqAvC69Zb26N6Bae+LNWhJlik8Y7YCtAQtabcoRTg5QDOSh9YdIju5oao0E6SRngqyw==",
+  "dgSpecHash": "WBS9+j8OFAqUWxzMuonD86Zws2xKhNWPTlCE/oKi6PEEr9VX8cOui/Wk+M4/sME1RxsuzaPfQlRou8duxtK5dw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dnarvaez\\source\\repos\\Udemy\\CursoAPIProductASPNETCore\\ProductAPI\\ProductAPI.csproj",
   "expectedPackageFiles": [
@@ -111,7 +111,9 @@
     "C:\\Users\\Dnarvaez\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Dnarvaez\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Dnarvaez\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Dnarvaez\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\Dnarvaez\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Dnarvaez\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\Dnarvaez\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.10\\microsoft.netcore.app.host.win-x64.3.1.10.nupkg.sha512"
   ],
   "logs": []
 }

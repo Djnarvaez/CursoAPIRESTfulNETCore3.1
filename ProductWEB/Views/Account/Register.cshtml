@@ -1,0 +1,42 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row justify-content-center" style="margin-top:10%">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header text-center bg-dark text-white"><i class="fa fa-user-circle-o fa-4x"></i></div>
+            <div class="card-body bg-light">
+                <form method="post" asp-action="Register">
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input type="email" class="form-control" asp-for="Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input type="password" class="form-control" asp-for="Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info form-control">Registrar</button>
+                    </div>
+                </form>
+                @if (Model.Errors.Count > 0)
+                {
+                    foreach (var item in Model.Errors)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:100%">
+                            <span>@item.ErrorMessage</span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
